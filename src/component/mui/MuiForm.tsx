@@ -1,6 +1,7 @@
 import { Box, Paper, TextField } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import MuiButton from "../common/MuiButton";
+import MuiInput from "../common/MuiInput";
 
 const FormContainer = styled(Paper)(({ theme }) => ({
   borderRadius: Number(theme.shape.borderRadius) * 0,
@@ -26,6 +27,8 @@ export default function MuiForm() {
       <MuiButton sx={{ px: 3, py: 2 }} variant="ghost">
         공통 버튼1
       </MuiButton>
+
+      <MuiInput id="text01" placeholder="text" label="text" />
     </>
   );
 }
