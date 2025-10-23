@@ -15,11 +15,7 @@ export default function MuiButton(props: Props) {
       <Button
         className={props.class}
         variant={props.variant}
-        sx={
-          props.sx
-            ? props.sx
-            : { px: 3, py: 1.2, bgcolor: "black", color: "white" }
-        }
+        sx={props.sx}
         href={props.href}
       >
         {props.children}

@@ -29,7 +29,6 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
           </Routes>
         </BrowserRouter>
-        <footer>footer</footer>
       </ThemeProvider>
     </>
   );

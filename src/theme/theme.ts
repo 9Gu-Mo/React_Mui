@@ -18,16 +18,18 @@ export const theme = createTheme({
 
   // component
   components: {
+    // button
     MuiButton: {
       styleOverrides: {
         root: {
-          borderRadius: "10px",
-          textTransform: "none",
-          fontWeight: 600,
-          padding: "8px 20px",
-          transition: "all 0.3s ease",
           color: "#101010",
+          textTransform: "none",
+          fontWeight: 400,
+          padding: "8px 20px",
+          borderRadius: "8px",
+          transition: "all 0.3s ease",
         },
+        // overriding variant
         contained: {
           backgroundColor: "#6b46c1",
           color: "#fff",
@@ -50,6 +52,7 @@ export const theme = createTheme({
           },
         },
       },
+      // custom variant
       variants: [
         {
           props: { variant: "soft" },
@@ -77,11 +80,16 @@ export const theme = createTheme({
         },
       ],
     },
+
+    // input(text, password, etc...)
     MuiInput: {
       styleOverrides: {
         root: {
-          border: "1px solid #010101",
+          border: "1px solid #5f2162",
         },
+        // filled: {
+        //   backgroundColor: "transparent",
+        // },
       },
     },
   },

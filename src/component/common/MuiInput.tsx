@@ -1,13 +1,38 @@
-import { TextField, type TextFieldProps } from "@mui/material";
+import {
+  IconButton,
+  InputAdornment,
+  TextField,
+  type TextFieldProps,
+} from "@mui/material";
+import { useState } from "react";
+import IconClear from "../Icon/IconClear";
 
 type Props = TextFieldProps & {
-  class?: string;
+  className?: string;
 };
 
-export default function MuiInput({ class: className, ...rest }: Props) {
+export default function MuiInput({ className: className, ...rest }: Props) {
+  const [value, setValue] = useState("");
+
   return (
     <>
-      <TextField className={className} {...rest} />
+      <TextField
+        value={value}
+        className={className}
+        onChange={(e) => {
+          setValue(e.target.value);
+        }}
+        InputProps={{
+          endAdornment: value && (
+            <InputAdornment position="end">
+              <IconButton size="small" onClick={() => setValue("")}>
+                <IconClear />
+              </IconButton>
+            </InputAdornment>
+          ),
+        }}
+        {...rest}
+      />
     </>
   );
 }
