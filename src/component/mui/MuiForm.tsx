@@ -104,20 +104,60 @@ export default function MuiForm() {
             gap: "10px",
           }}
         >
-          <Typography>Input</Typography>
+          <Typography>Input(text, password, etc..)</Typography>
           <MuiInput
-            id="text"
+            id="text01"
             placeholder="text"
             label="text"
             variant="outlined"
+            clear
           />
           <MuiInput
-            id="password"
+            id="password01"
             placeholder="password"
             label="password"
             variant="outlined"
             type="password"
           />
+          <MuiInput
+            id="number01"
+            placeholder="number"
+            label="number"
+            variant="outlined"
+            type="number"
+            clear
+          />
+          <MuiInput
+            id="tel01"
+            placeholder="tel"
+            label="tel"
+            variant="outlined"
+            type="tel"
+            clear
+          />
+          <Stack
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              gap: "10px",
+              "& .MuiTextField-root": {
+                flex: 1,
+              },
+            }}
+          >
+            <MuiInput
+              id="text02-1"
+              placeholder="text"
+              label="text"
+              variant="outlined"
+            />
+            <MuiInput
+              id="text02-2"
+              placeholder="text"
+              label="text"
+              variant="outlined"
+            />
+          </Stack>
         </Stack>
       </Box>
     </>

@@ -1,9 +1,9 @@
-interface IconProps {
+interface Props {
   size?: string;
   color?: string;
 }
 
-export default function IconClear(props: IconProps) {
+export default function IconClear(props: Props) {
   return (
     <>
       <svg
