@@ -1,7 +1,6 @@
 import {
   Box,
   ButtonGroup,
-  Checkbox,
   FormControl,
   FormControlLabel,
   Stack,
