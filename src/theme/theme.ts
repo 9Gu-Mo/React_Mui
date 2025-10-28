@@ -92,5 +92,29 @@ export const theme = createTheme({
         // },
       },
     },
+
+    // checkbox
+    MuiCheckbox: {
+      styleOverrides: {
+        root: {
+          // 기본색상
+          color: "#9e9e9e",
+
+          // 체크 색상
+          "&.Mui-checked": {
+            color: "#1976d2",
+          },
+
+          // 비활성화
+          "&.Mui-disabled": {
+            color: "#c2c2c2",
+          },
+
+          "&:hover": {
+            backgroundColor: "rgba(25, 118, 210, 0.08)",
+          },
+        },
+      },
+    },
   },
 });

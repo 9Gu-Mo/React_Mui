@@ -1,6 +1,15 @@
-import { Box, ButtonGroup, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  ButtonGroup,
+  Checkbox,
+  FormControl,
+  FormControlLabel,
+  Stack,
+  Typography,
+} from "@mui/material";
 import MuiButton from "../common/MuiButton";
 import MuiInput from "../common/MuiInput";
+import MuiCheck from "../common/MuiCheck";
 
 // const FormContainer = styled(Box)(({ theme }) => ({
 //   borderRadius: Number(theme.shape.borderRadius) * 0,
@@ -157,6 +166,48 @@ export default function MuiForm() {
               label="text"
               variant="outlined"
             />
+          </Stack>
+        </Stack>
+
+        <Stack
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "10px",
+          }}
+        >
+          <Stack>
+            <Typography>Check Box(No Label)</Typography>
+            <div>
+              <MuiCheck />
+              <MuiCheck defaultChecked />
+              <MuiCheck defaultChecked disabled />
+            </div>
+          </Stack>
+
+          <Stack>
+            <Typography>Check Box</Typography>
+            <FormControl
+              sx={{
+                "& .MuiFormControlLabel-root": {
+                  marginLeft: 0,
+                  marginRight: 0,
+                },
+              }}
+            >
+              <FormControlLabel control={<MuiCheck />} label="전체" />
+              <FormControlLabel control={<MuiCheck />} label="매일두유(저당)" />
+              <FormControlLabel
+                control={<MuiCheck />}
+                label="매일두유(단백질)"
+              />
+              <FormControlLabel
+                control={<MuiCheck />}
+                label="매일두유"
+                disabled
+              />
+              <FormControlLabel control={<MuiCheck />} label="기타" />
+            </FormControl>
           </Stack>
         </Stack>
       </Box>
