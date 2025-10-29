@@ -11,6 +11,7 @@ import MuiButton from "../common/MuiButton";
 import MuiInput from "../common/MuiInput";
 import MuiCheck from "../common/MuiCheck";
 import MuiRadio from "../common/MuiRadio";
+import MuiTransferList from "../common/MuiTransferList";
 
 // const FormContainer = styled(Box)(({ theme }) => ({
 //   borderRadius: Number(theme.shape.borderRadius) * 0,
@@ -82,7 +83,7 @@ export default function MuiForm() {
           display: "flex",
           flexDirection: "column",
           gap: "30px",
-          padding: "0 20px",
+          padding: "20px",
           maxWidth: "800px",
           margin: "0 auto",
         }}
@@ -331,6 +332,16 @@ export default function MuiForm() {
               </RadioGroup>
             </FormControl>
           </Stack>
+        </Stack>
+
+        <Stack
+          sx={{
+            flexDirection: "column",
+            gap: "10px",
+          }}
+        >
+          <Typography>Transfer List</Typography>
+          <MuiTransferList />
         </Stack>
       </Box>
     </>
