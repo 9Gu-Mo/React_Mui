@@ -110,8 +110,34 @@ export const theme = createTheme({
             color: "#c2c2c2",
           },
 
+          // hover
           "&:hover": {
-            backgroundColor: "rgba(25, 118, 210, 0.08)",
+            backgroundColor: "transparent",
+          },
+        },
+      },
+    },
+
+    // radio
+    MuiRadio: {
+      styleOverrides: {
+        root: {
+          // 기본색상
+          color: "",
+
+          // 체크 색상
+          "&.Mui-checked": {
+            color: "",
+          },
+
+          // 비활성화
+          "&.Mui-disabled": {
+            color: "#c2c2c2",
+          },
+
+          // hover
+          "&:hover": {
+            backgroundColor: "transparent",
           },
         },
       },

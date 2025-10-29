@@ -3,12 +3,14 @@ import {
   ButtonGroup,
   FormControl,
   FormControlLabel,
+  RadioGroup,
   Stack,
   Typography,
 } from "@mui/material";
 import MuiButton from "../common/MuiButton";
 import MuiInput from "../common/MuiInput";
 import MuiCheck from "../common/MuiCheck";
+import MuiRadio from "../common/MuiRadio";
 
 // const FormContainer = styled(Box)(({ theme }) => ({
 //   borderRadius: Number(theme.shape.borderRadius) * 0,
@@ -20,6 +22,54 @@ import MuiCheck from "../common/MuiCheck";
 //   },
 // }));
 export default function MuiForm() {
+  const dummy = [
+    {
+      value: "설문1",
+    },
+    {
+      value: "설문2",
+    },
+    {
+      value: "설문3",
+    },
+    {
+      value: "설문4",
+    },
+    {
+      value: "설문5",
+    },
+    {
+      value: "설문6",
+    },
+    {
+      value: "설문7",
+    },
+    {
+      value: "설문8",
+    },
+    {
+      value: "설문9",
+    },
+    {
+      value: "설문10",
+    },
+    {
+      value: "설문11",
+    },
+    {
+      value: "설문12",
+    },
+    {
+      value: "설문13",
+    },
+    {
+      value: "설문14",
+    },
+    {
+      value: "설문15",
+    },
+  ];
+
   return (
     <>
       {/* <FormContainer>
@@ -33,7 +83,7 @@ export default function MuiForm() {
           flexDirection: "column",
           gap: "30px",
           padding: "0 20px",
-          maxWidth: "600px",
+          maxWidth: "800px",
           margin: "0 auto",
         }}
       >
@@ -176,7 +226,7 @@ export default function MuiForm() {
           }}
         >
           <Stack>
-            <Typography>Check Box(No Label)</Typography>
+            <Typography>Check Box</Typography>
             <div>
               <MuiCheck />
               <MuiCheck defaultChecked />
@@ -185,7 +235,7 @@ export default function MuiForm() {
           </Stack>
 
           <Stack>
-            <Typography>Check Box</Typography>
+            <Typography>Check Box(With Label)</Typography>
             <FormControl
               sx={{
                 "& .MuiFormControlLabel-root": {
@@ -206,6 +256,79 @@ export default function MuiForm() {
                 disabled
               />
               <FormControlLabel control={<MuiCheck />} label="기타" />
+            </FormControl>
+          </Stack>
+        </Stack>
+
+        <Stack
+          sx={{
+            flexDirection: "column",
+            gap: "10px",
+          }}
+        >
+          <Stack>
+            <Typography>Radio Group</Typography>
+            <FormControl
+              sx={{
+                "& .MuiFormControlLabel-root": {
+                  marginLeft: 0,
+                  marginRight: 0,
+                },
+              }}
+            >
+              <RadioGroup
+                sx={{
+                  display: "block",
+                  whiteSpace: "nowrap",
+                  overflowX: "auto",
+                }}
+              >
+                {dummy.map((item, index) => (
+                  <FormControlLabel
+                    key={index}
+                    control={<MuiRadio />}
+                    value={item.value}
+                    label={index + 1}
+                    labelPlacement="bottom"
+                  />
+                ))}
+              </RadioGroup>
+            </FormControl>
+          </Stack>
+
+          <Stack>
+            <Typography>Radio Group(With Label)</Typography>
+            <FormControl
+              sx={{
+                "& .MuiFormControlLabel-root": {
+                  marginLeft: 0,
+                  marginRight: 0,
+                },
+              }}
+            >
+              <RadioGroup
+                defaultValue="매일두유"
+                sx={{
+                  flexDirection: "row",
+                }}
+              >
+                <FormControlLabel
+                  value="매일두유"
+                  control={<MuiRadio />}
+                  label="매일두유"
+                />
+                <FormControlLabel
+                  value="매일두유(저당)"
+                  control={<MuiRadio />}
+                  label="매일두유(저당)"
+                />
+                <FormControlLabel
+                  value="매일두유(단백질)"
+                  control={<MuiRadio />}
+                  label="매일두유(단백질)"
+                  disabled
+                />
+              </RadioGroup>
             </FormControl>
           </Stack>
         </Stack>
