@@ -1,7 +1,7 @@
 import {
+  Box,
   Button,
   Checkbox,
-  Grid,
   List,
   ListItemButton,
   ListItemIcon,
@@ -20,8 +20,10 @@ function intersection(a: readonly number[], b: readonly number[]) {
 
 export default function MuiTransferList() {
   const [checked, setChecked] = useState<readonly number[]>([]);
-  const [left, setLeft] = useState<readonly number[]>([0, 1, 2, 3]);
-  const [right, setRight] = useState<readonly number[]>([4, 5, 6, 7]);
+  const [left, setLeft] = useState<readonly number[]>([
+    0, 1, 2, 3, 4, 5, 6, 7, 8,
+  ]);
+  const [right, setRight] = useState<readonly number[]>([]);
 
   const leftChecked = intersection(checked, left);
   const rightChecked = intersection(checked, right);
@@ -39,11 +41,6 @@ export default function MuiTransferList() {
     setChecked(newChecked);
   };
 
-  const handleAllRight = () => {
-    setRight(right.concat(left));
-    setLeft([]);
-  };
-
   const handleCheckedRight = () => {
     setRight(right.concat(leftChecked));
     setLeft(not(left, leftChecked));
@@ -56,16 +53,12 @@ export default function MuiTransferList() {
     setChecked(not(checked, rightChecked));
   };
 
-  const handleAllLeft = () => {
-    setLeft(left.concat(right));
-    setRight([]);
-  };
-
   const customList = (items: readonly number[]) => (
     <Paper
       sx={{
         width: "100%",
         overflow: "auto",
+        height: 216,
       }}
     >
       <List dense component="div" role="list">
@@ -83,9 +76,6 @@ export default function MuiTransferList() {
                   checked={checked.includes(value)}
                   tabIndex={-1}
                   disableRipple
-                  inputProps={{
-                    "aria-labelledby": labelId,
-                  }}
                 />
               </ListItemIcon>
               <ListItemText id={labelId} primary={`List item ${value + 1}`} />
@@ -97,29 +87,27 @@ export default function MuiTransferList() {
   );
 
   return (
-    <Grid
-      container
-      spacing={2}
-      sx={{
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Grid sx={{ width: "calc((100% - 64px - 32px) / 2)" }}>
-        {customList(left)}
-      </Grid>
-      <Grid>
-        <Grid container direction="column" sx={{ alignItems: "center" }}>
-          <Button
-            sx={{ my: 0.5 }}
-            variant="outlined"
-            size="small"
-            onClick={handleAllRight}
-            disabled={left.length === 0}
-            aria-label="move all right"
-          >
-            ≫
-          </Button>
+    <>
+      <Box
+        sx={{
+          display: "flex",
+          gap: 1,
+          alignItems: "center",
+        }}
+      >
+        <Box
+          sx={{
+            width: "calc((100% - 84px) / 2)",
+          }}
+        >
+          {customList(left)}
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
           <Button
             sx={{ my: 0.5 }}
             variant="outlined"
@@ -140,21 +128,15 @@ export default function MuiTransferList() {
           >
             &lt;
           </Button>
-          <Button
-            sx={{ my: 0.5 }}
-            variant="outlined"
-            size="small"
-            onClick={handleAllLeft}
-            disabled={right.length === 0}
-            aria-label="move all left"
-          >
-            ≪
-          </Button>
-        </Grid>
-      </Grid>
-      <Grid sx={{ width: "calc((100% - 64px - 32px) / 2)" }}>
-        {customList(right)}
-      </Grid>
-    </Grid>
+        </Box>
+        <Box
+          sx={{
+            width: "calc((100% - 84px) / 2)",
+          }}
+        >
+          {customList(right)}
+        </Box>
+      </Box>
+    </>
   );
 }
