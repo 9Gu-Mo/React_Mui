@@ -1,25 +1,23 @@
 import { Button, type ButtonProps } from "@mui/material";
 import type { ReactNode } from "react";
 
-interface Props {
+interface Props extends ButtonProps {
   children: ReactNode;
   href?: string;
-  class?: string;
-  sx?: ButtonProps["sx"];
-  variant?: ButtonProps["variant"];
+  className?: string;
 }
 
 export default function MuiButton(props: Props) {
+  const { children, href, className, sx, variant, ...rest } = props;
   return (
-    <>
-      <Button
-        className={props.class}
-        variant={props.variant}
-        sx={props.sx}
-        href={props.href}
-      >
-        {props.children}
-      </Button>
-    </>
+    <Button
+      className={className}
+      variant={variant}
+      sx={sx}
+      href={href}
+      {...rest}
+    >
+      {children}
+    </Button>
   );
 }
